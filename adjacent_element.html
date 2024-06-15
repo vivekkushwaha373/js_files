@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <div class="mydiv" style="font-size: large;">
+            <p>hello ji</p>
+        </div>   
+</body>
+<script>
+    let newText=document.createElement('p');
+    newText.appendChild(document.createTextNode("this is love babber"));
+    // newText.textContent="this is love babber";
+    const tempdiv=document.getElementsByClassName('mydiv');
+    tempdiv[0].insertAdjacentElement('afterbegin',newText);
+    // tempdiv.insertAdjacentElement('beforeend',newText);
+</script>
+</html>

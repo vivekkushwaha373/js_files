@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <p>first <span>first</span></p>
+        <p>second<span>first</span></p>
+        <p>third<span>first</span></p>
+        <p>fourth<span>first</span></p>
+    </div>
+</body>
+<script>
+    fpara=document.querySelectorAll('p');
+    function perform(event){
+        if(event.target.nodeName ==='SPAN')
+        {
+            alert("you have clicked on"+event.target.textContent);
+        }
+    }
+    function action(event){
+      event.target.textContent=`calling ${event.target.textContent}` 
+    }
+
+//   for(let i=0;i<fpara.length;i++)
+//   {
+//      let para=fpara[i];
+//      para.addEventListener('click',action);
+//   }
+   const wrapper=document.getElementById('wrapper');
+   wrapper.addEventListener('click',perform);
+</script>
+</html>

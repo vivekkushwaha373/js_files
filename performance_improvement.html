@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // case1 -->100 reflow and 100 repaint
+    
+    let t1=performance.now();
+    for(let i=0;i<100;i++)
+    {
+        let para=document.createElement('p');
+        para.textContent="this is para "+(i+1);
+        document.body.appendChild(para);
+    }
+    let t2=performance.now();
+    console.log(`performance: ${t2-t1}`)
+
+    //case2 --> 1 reflow and 1 repaint
+
+    let t3=performance.now();
+    let mydiv=document.createElement('div');
+    for(let i=0;i<100;i++)
+    {
+        let para=document.createElement('p');
+        para.textContent="this is para "+i+1;
+        mydiv.appendChild(para);
+        //here I ma creating an element
+    }
+    document.body.appendChild(mydiv);
+    let t4=performance.now();
+    console.log("performance: "+(t4-t3))
+
+
+    //document fragmentation
+    let t5=performance.now()
+    let doc=document.createDocumentFragment();
+    for(let i=0;i<100;i++)
+    {
+        let para=document.createElement('p');
+        para.textContent="this is my para"+(i+1);
+        doc.appendChild(para);
+    }
+    let t6=performance.now()
+    console.log(`performance: ${t6-t5}`)
+</script>
+</html>

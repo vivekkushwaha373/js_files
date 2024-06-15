@@ -1,0 +1,13 @@
+const URL = "https://cat-fact.herokuapp.com/facts";
+//It uses Request and Response Object
+const getdata = async () => {
+    console.log("Getting data .....")
+    let promise = await fetch(URL);
+    promise.then((res) => {
+        console.log(res);
+    })
+    
+}
+
+getdata()
+// fetch returns promise
